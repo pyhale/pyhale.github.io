@@ -1,5 +1,5 @@
 body {
-    margin: 60px auto;
+    margin: 30px auto;
     width: 70%;
     font-size: 1.2em;
 }
@@ -56,4 +56,10 @@ ul.posts li {
 .personal-information ul li {
     display: inline-block;
     width: 20%;
+}
+.rectangle {
+    display: inline-block;
+    width: 5em;
+    height: 1em;
+    background: black;
 }
