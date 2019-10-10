@@ -1,7 +1,7 @@
 body {
     margin: 30px auto;
     width: 70%;
-    font-size: 1.2em;
+    font-size: 1em;
 }
 nav ul, footer ul {
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
@@ -30,12 +30,16 @@ h2 {
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
 }
 p {
-    line-height: 1em;
+    line-height: 1.5em;
     color: #333;
 }
 footer {
     border-top: 1px solid #d5d5d5;
     font-size: .8em;
+}
+.description p {
+    font-size: .4em;
+    color: #999;
 }
 ul.posts {
     margin: 20px auto 40px;
@@ -48,14 +52,16 @@ ul.posts li {
     margin-bottom: 60px;
 }
 .blurb {
-    margin-bottom: 30px;
+    margin-bottom: 2em;
 }
 .personal-information ul {
+
     width: 100%;
 }
 .personal-information ul li {
     display: inline-block;
     width: 20%;
+    margin-top: 1em;
 }
 .rectangle {
     display: inline-block;
