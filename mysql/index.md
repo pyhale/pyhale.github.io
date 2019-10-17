@@ -34,7 +34,7 @@
 
 #### 索引使用的注意点：
 
-一、 一般说来，索引应建立在那些将用于JOIN,WHERE判断和ORDER BY排序的字段上。尽量不要对数据库中某个含有大量重复的值的字段建立索引。对于一个ENUM类型的字段来说，出现大量重复值是很有可能的情况。
+一、 一般说来，索引应建立在那些将用于 JOIN,WHERE 判断和 ORDER BY 排序的字段上。尽量不要对数据库中某个含有大量重复的值的字段建立索引。对于一个ENUM类型的字段来说，出现大量重复值是很有可能的情况。
 
 二、 应尽量避免在 where 子句中对字段进行 null 值判断，否则将导致引擎放弃使用索引而进行全表扫描。如：
 
@@ -44,7 +44,7 @@ select id from t where num is null
 
 三、 最好不要给数据库留NULL，尽可能的使用 NOT NULL填充数据库。
 
-备注、描述、评论之类的可以设置为 NULL，其他的，最好不要使用NULL。
+备注、描述、评论之类的可以设置为 NULL，其他的，最好不要使用 NULL。
 
 不要以为 NULL 不需要空间，比如：char(100) 型，在字段建立时，空间就固定了， 不管是否插入值（ NULL 也包含在内），都是占用 100个字符的空间的，如果是 varchar 这样的变长字段， null 不占用空间。
 可以在 num 上设置默认值 0，确保表中 num 列没有 null 值，然后这样查询：
@@ -93,7 +93,7 @@ select num from a where exists(select 1 from b where num = a.num)
 ~~~
 七、 下面的模糊查询也将导致全表扫描：
 ~~~sql
-select id from t where name like ‘%abc%’
+select id from t where name like '%abc%'
 ~~~
 
 一般情况下不鼓励使用 like 操作，如果非使用不可，如何使用也是一个问题。like “%aaa%” 不会使用索引，而 like “aaa%” 可以使用索引。
@@ -133,8 +133,8 @@ select id from t where num = 100*2
 
 九、 应尽量避免在where子句中对字段进行函数操作，这将导致引擎放弃使用索引而进行全表扫描。如：
 ~~~sql
-select id from t where substring(name,1,3) = ’abc’       //name以abc开头的id
-select id from t where datediff(day,createdate,’2005-11-30′) = 0    -–‘2005-11-30’    //生成的id
+select id from t where substring(name,1,3) = 'abc'       //name以abc开头的id
+select id from t where datediff(day,createdate,'2005-11-30') = 0    //生成的id
 ~~~
 应改为：
 ~~~sql
