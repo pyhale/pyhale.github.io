@@ -2,6 +2,25 @@
 ---
 
 @import "{{ site.theme }}";
+.body {
+  color: #515154;
+  line-height: 1;
+}
+.project-name {
+  font-size: 2rem;
+}
+.project-tagline {
+  display: none;
+}
 .page-header {
   padding: 1rem 6rem;
+  //color: #444;
+  color: rgba(45,45,45,0.98);
+  font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Helvetica Neue","Helvetica","Arial","sans-serif";
+}
+.main-content {
+  font-size: 1rem;
+}
+.main-content h1, .main-content h2, .main-content h3, .main-content h4, .main-content h5, .main-content h6 {
+  color: #111;
 }
