@@ -28,21 +28,21 @@
 
 7. 对于那些查询中很少涉及的列，重复值比较多的列不要建立索引
 
-8. 对于定义为text、image和bit的数据类型的列不要建立索引
+8. 对于定义为 text、image 和 bit 的数据类型的列不要建立索引
 
 9. 对于经常存取的列避免建立索引
 
 ### 索引使用的注意点：
 
-1. 一般说来，索引应建立在那些将用于 JOIN,WHERE 判断和 ORDER BY 排序的字段上。尽量不要对数据库中某个含有大量重复的值的字段建立索引。对于一个 ENUM 类型的字段来说，出现大量重复值是很有可能的情况。
+1. 一般说来，索引应建立在那些将用于 JOIN , WHERE 判断和 ORDER BY 排序的字段上。尽量不要对数据库中某个含有大量重复的值的字段建立索引。对于一个 ENUM 类型的字段来说，出现大量重复值是很有可能的情况。
 
 2. 应尽量避免在 where 子句中对字段进行 null 值判断，否则将导致引擎放弃使用索引而进行全表扫描。如：
-    
+   
     ~~~sql
    select id from t where num is null
-    ~~~
+   ~~~
 
-3. 最好不要给数据库留NULL，尽可能的使用 NOT NULL填充数据库。
+3. 最好不要给数据库留 NULL，尽可能的使用 NOT NULL 填充数据库。
 
     备注、描述、评论之类的可以设置为 NULL，其他的，最好不要使用 NULL。
 
@@ -84,7 +84,7 @@
     select id from t where num between 1 and 3
     ~~~
 
-    很多时候用 exists 代替 in 是一个好的选择，当然exists也不跑索引。
+    很多时候用 exists 代替 in 是一个好的选择，当然 exists 也不跑索引。
     ~~~sql
     select num from a where num in(select num from b)
     ~~~
@@ -132,7 +132,7 @@
     select id from t where num = 100*2
     ~~~
 
-9. 应尽量避免在where子句中对字段进行函数操作，这将导致引擎放弃使用索引而进行全表扫描。如：
+9. 应尽量避免在 where 子句中对字段进行函数操作，这将导致引擎放弃使用索引而进行全表扫描。如：
     ~~~sql
     select id from t where substring(name,1,3) = 'abc'       //name以abc开头的id
     select id from t where datediff(day,createdate,'2005-11-30') = 0    //生成的id
